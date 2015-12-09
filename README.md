@@ -36,7 +36,7 @@ mounted X11 socket and explicitly specified user name.
 
 ```
 xhost +si:localuser:$USER
-docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:$PWD -w $PWD -e DISPLAY=$DISPLAY --entrypoint=/bin/bash --user=$USER python
+docker run -it --rm -e DISPLAY=$DISPLAY -u $USER -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:$PWD -w $PWD --entrypoint=/bin/bash python
 ```
 
-The run-time `--user` option can be skipped if the image's Dockerfile already sets a user name using `USER`.
+The run-time `-u` or `--user` option can be skipped if the image's Dockerfile already sets a user name using `USER`.
