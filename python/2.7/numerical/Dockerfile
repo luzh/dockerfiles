@@ -1,4 +1,4 @@
-# Python 2.7 with mathmatical and numerical libraries
+# Python 2.7 with Numerical Libraries
 #
 # --- Image Stack ---
 # luzh/python2.7-numerical

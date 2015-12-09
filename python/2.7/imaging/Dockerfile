@@ -1,4 +1,4 @@
-# Python 2.7 with image processing libraries
+# Python 2.7 with Image Processing Libraries
 #
 # --- Image Stack ---
 # luzh/python2.7-imaging

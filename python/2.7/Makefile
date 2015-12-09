@@ -34,7 +34,7 @@ dockerfile:
 				xhost -si:localuser:root; \
 			fi \
 		else \
-			docker run --rm -v $(PWD):$(PWD) $(USER)/python2.7-$* $(PWD)/$*/imagetest.py; \
+			docker run --rm -v $(PWD):$(PWD) -w $(PWD) $(USER)/python2.7-$* $(PWD)/$*/imagetest.py; \
 		fi \
 	else \
 		echo "Error: No such directory exists: $*!"; \
