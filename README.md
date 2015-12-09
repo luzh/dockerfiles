@@ -29,7 +29,7 @@ The image/container user name should be the same as the $USER that will run the 
 of the user in container should also be identical to the one on the host; otherwise `usermod` and `groupmod` commands are
 needed to alter them.
 
-Refer to `python/Makefile` for building an image "python" with a regular user.
+Refer to `python/2.7/Makefile` for building an image "python" with a regular user.
 
 Next give only containers of $USER permission to access the X11 socket on the local host machine, and run a container with
 mounted X11 socket and explicitly specified user name.
