@@ -19,13 +19,12 @@ ENV TZ America/Los_Angeles
 # When a package is downloaded, installed and removed there is a chance that
 # the package may still be saved/stored in the yum's cache. So to clean all the
 # cached packages run "yum clean all" at the end of an image building.
-RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 \
- && yum -y install epel-release \
+RUN yum -y install epel-release \
  && yum -y update \
  && yum clean all
 
 # Entrypoint Executable
-# To override the entrypoint, run docker with "--entrypoint=bash".
+# To override the entrypoint, run docker with "--entrypoint=<something else>".
 ENTRYPOINT ["/bin/bash"]
 
 # Entrypoint Options
