@@ -2,7 +2,7 @@ WORK_IMAGE ?= python2.7-imaging
 
 # Build a "python" image that contains the most relevant tools for work.
 python: dockerfile
-	docker build -t python .
+	docker build -t $(USER)/python .
 
 # Adding a user is mainly for using the X11 socket on the local host for GUI.
 dockerfile:
