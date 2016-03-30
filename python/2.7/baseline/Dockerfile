@@ -6,11 +6,11 @@
 FROM luzh/centos7
 
 # Set the Python version to be built and installed.
-ENV PYTHON_VERSION 2.7.10
+ENV PYTHON_VERSION 2.7.11
 
 # https://github.com/docker-library/python/blob/master/2.7/Dockerfile
 # If this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'".
-ENV PYTHON_PIP_VERSION 7.1.2
+ENV PYTHON_PIP_VERSION 8.1.1
 
 # Enable UTF-32 in Python 2.7 by flag "--enable-unicode=ucs4". In Python 3.2 the flag is "--with-wide-unicode".
 # Compile Python as a shared library: --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib"
