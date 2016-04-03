@@ -23,5 +23,4 @@ RUN yum -y install libjpeg-turbo libjpeg-turbo-devel \
  && yum -y install libwebp libwebp-devel \
  && yum -y install ImageMagick \
  && pip install --no-cache-dir Pillow matplotlib \
- && pip install --no-cache-dir plotly \
  && yum clean all

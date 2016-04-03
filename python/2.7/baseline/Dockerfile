@@ -22,7 +22,7 @@ ENV PYTHON_PIP_VERSION 8.1.1
 RUN mkdir /build && cd /build \
  && curl -SL "https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz" -o python.tgz \
  && mkdir /build/python \
- && yum -y install wget tar make gcc gcc-c++ \
+ && yum -y install wget tar zip unzip make gcc gcc-c++ \
  && yum -y install zlib zlib-devel \
  && yum -y install bzip2 bzip2-devel \
  && yum -y install openssl openssl-devel \
