@@ -19,12 +19,13 @@ This directory contains Dockerfiles for building images based on CentOS 7 that r
 .
 └── 2.7
     ├── baseline     # baseline image that contains python and pip
-    ├── numerical    # baseline + numpy + scipy
-    └── imaging      # baseline + numpy + scipy + pillow + matplotlib
-    └── wxpython     # baseline + numpy + scipy + pillow + matplotlib + wxpython 
+    ├── numerical    # baseline + numpy + scipy + pandas
+    └── imaging      # baseline + numpy + scipy + pandas + pillow + matplotlib
+    └── notebook     # baseline + numpy + scipy + pandas + pillow + matplotlib + notebook
+    └── wxpython     # baseline + numpy + scipy + pandas + pillow + matplotlib + wxpython
 ```
 
-To run GUI applications (e.g. Python with interactive plotting) in docker, first create a non-root user in the docker image. 
+To run GUI applications (e.g. Python with interactive plotting) in docker, first create a non-root user in the docker image.
 The image/container user name should be the same as the $USER that will run the container on the host machine. The uid/gid
 of the user in container should also be identical to the one on the host; otherwise `usermod` and `groupmod` commands are
 needed to alter them.
