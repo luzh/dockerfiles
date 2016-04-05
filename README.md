@@ -36,8 +36,21 @@ mounted X11 socket and explicitly specified user name.
 
 ```
 xhost +si:localuser:$USER
-docker run -it --rm -e DISPLAY=$DISPLAY -u $USER -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:$PWD -w $PWD --entrypoint=/bin/bash python
+docker run -it --rm -e DISPLAY=$DISPLAY -u $USER -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:$PWD -w $PWD --entrypoint=/bin/bash DockerImage
 xhost -si:localuser:$USER
 ```
+To run a password-protected notebook in Daemon mode, use the following command.
+```
+docker run -it -d -p 443:8888 -e PASSWORD=MakeAPassword -v $PWD:/notebooks --entrypoint=/run.sh DockerImage
+```
+
+To run a password-protected notebook in attached mode, use the following commands.
+
+```
+xhost +si:localuser:$USER
+docker run -it --rm -p 443:8888 -e DISPLAY=$DISPLAY -u $USER -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:/notebooks --entrypoint=/bin/bash DockerImage
+xhost -si:localuser:$USER
+```
+In the docker, run `PASSWORD=MakeAPassword /run.sh &` to start the Jupyter notebook in background.
 
 The run-time `-u` or `--user` option can be skipped if the image's Dockerfile already sets a user name using `USER`.
