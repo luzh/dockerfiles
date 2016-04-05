@@ -15,5 +15,6 @@ RUN yum -y install blas blas-devel \
  && yum -y install lapack lapack-devel \
  && yum -y install atlas atlas-devel \
  && pip install --no-cache-dir numpy scipy \
+ && pip install --no-cache-dir pandas \
  && pip install --no-cache-dir colorama \
  && yum clean all
