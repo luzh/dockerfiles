@@ -16,9 +16,9 @@ FROM luzh/python2.7-imaging
 
 RUN pip install --no-cache-dir jupyter
 
-VOLUME /notebooks
+VOLUME /notebook
 
-WORKDIR /notebooks
+WORKDIR /notebook
 
 EXPOSE 8888
 
