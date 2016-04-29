@@ -7,8 +7,8 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # Set configuration defaults
-: ${PASSWORD:=""}
-: ${PEM_FILE:="/key.pem"}
+: ${PASSWORD:="MakeAPassWord"}
+: ${PEM_FILE:="$HOME/key.pem"}
 
 # Create a self signed certificate for the user if one doesn't exist
 if [ ! -f $PEM_FILE ]; then
