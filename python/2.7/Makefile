@@ -1,4 +1,4 @@
-WORK_IMAGE ?= python2.7-imaging
+WORK_IMAGE ?= python2.7-notebook
 
 # Build a "python" image that contains the most relevant tools for work.
 python: dockerfile
