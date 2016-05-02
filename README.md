@@ -20,9 +20,9 @@ This directory contains Dockerfiles for building images based on CentOS 7 that r
 └── 2.7
     ├── baseline     # baseline image that contains python and pip
     ├── numerical    # baseline + numpy + scipy + pandas
-    └── imaging      # baseline + numpy + scipy + pandas + pillow + matplotlib
+    ├── imaging      # baseline + numpy + scipy + pandas + pillow + matplotlib
+    ├── wxpython     # baseline + numpy + scipy + pandas + pillow + matplotlib + wxpython
     └── notebook     # baseline + numpy + scipy + pandas + pillow + matplotlib + notebook
-    └── wxpython     # baseline + numpy + scipy + pandas + pillow + matplotlib + wxpython
 ```
 
 To run GUI applications (e.g. Python with interactive plotting) in docker, first create a non-root user in the docker image.
@@ -43,14 +43,15 @@ xhost -si:localuser:$USER
 
 The run-time `-u` or `--user` option can be skipped if the image's Dockerfile already sets a user name using `USER`.
 
-To run a password-protected notebook in daemon mode, use the following command.
+To run a password-protected notebook in daemon mode, use the following command. To allow public access to this notebook, remove the
+loopback IP (127.0.0.1:) from the run command. Local-only access is preferred for safety.
 ```
-docker run -it -d -p 443:8888 -e PASSWORD=MakeAPassword -v $PWD:/notebook --entrypoint=/run.sh DockerImage
+docker run -it -d -p 127.0.0.1:443:8888 -e PASSWORD=MakeAPassword -v $PWD:/notebook --entrypoint=/run.sh DockerImage
 ```
 
 To run a password-protected notebook in attached mode, use the following commands.
 
 ```
-docker run -it --rm -p 443:8888 -v $PWD:/notebook --entrypoint=/bin/bash DockerImage
+docker run -it --rm -p 127.0.0.1:443:8888 -v $PWD:/notebook --entrypoint=/bin/bash DockerImage
 ```
 In the docker process, run `PASSWORD=MakeAPassword /run.sh &` to start the Jupyter notebook in background.
